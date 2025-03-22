@@ -9,7 +9,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20);
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -20,18 +20,18 @@ const Navbar = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/90 backdrop-blur-md py-3 shadow-sm' 
+          ? 'bg-white/90 backdrop-blur-md py-3 shadow-sm dark:bg-background/90' 
           : 'bg-transparent py-5'
       }`}
     >
       <div className="container flex items-center justify-between">
-        <a href="#" className="text-xl font-bold text-primary">
-          AI.Product
+        <a href="#" className="text-xl font-bold tracking-tight text-primary">
+          Rajesh Matta
         </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
+          {['About', 'Expertise', 'Projects', 'Contact'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`}
@@ -40,8 +40,8 @@ const Navbar = () => {
               {item}
             </a>
           ))}
-          <Button variant="default" size="sm">
-            View Resume
+          <Button variant="outline" size="sm" className="ml-2">
+            Contact Me
           </Button>
         </nav>
 
@@ -59,18 +59,18 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-16 bg-background z-40 flex flex-col p-6 animate-fadeIn">
-          {['About', 'Skills', 'Projects', 'Contact'].map((item, index) => (
+          {['About', 'Expertise', 'Projects', 'Contact'].map((item, index) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`}
-              className={`text-lg font-medium py-3 border-b border-border text-foreground hover:text-primary transition-colors animation-delay-${index * 200}`}
+              className="text-lg font-medium py-3 border-b border-border text-foreground hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               {item}
             </a>
           ))}
           <Button className="mt-6" size="lg">
-            View Resume
+            Contact Me
           </Button>
         </div>
       )}

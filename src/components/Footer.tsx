@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="py-8 border-t border-border">
+    <footer className="py-10 border-t border-border">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
@@ -14,8 +14,8 @@ const Footer = () => {
             </p>
           </div>
           
-          <div className="flex items-center space-x-4">
-            {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
+          <div className="flex items-center space-x-6">
+            {['About', 'Expertise', 'Projects', 'Contact'].map((item) => (
               <a 
                 key={item} 
                 href={`#${item.toLowerCase()}`}
