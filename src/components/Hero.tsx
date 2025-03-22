@@ -29,11 +29,22 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 pt-4 animate-fadeIn animation-delay-600">
-              <Button size="lg" className="gap-2 rounded-md transition-all hover:translate-y-[-2px]">
+              <Button 
+                size="lg" 
+                className="gap-2 rounded-md transition-all hover:translate-y-[-2px]"
+                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 View My Work <ArrowRight size={16} />
               </Button>
-              <Button variant="outline" size="lg" className="gap-2 rounded-md transition-all hover:translate-y-[-2px]">
-                Download CV <Download size={16} />
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="gap-2 rounded-md transition-all hover:translate-y-[-2px]"
+                asChild
+              >
+                <a href="/resume.pdf" download="Rajesh_Matta_Resume.pdf">
+                  Download CV <Download size={16} />
+                </a>
               </Button>
             </div>
 

@@ -11,18 +11,21 @@ const projects = [
     description: "Led the development of an enterprise-grade AI assistant platform that improved customer service efficiency by 40% and reduced operational costs by $2.5M annually.",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     skills: ["AI Strategy", "NLP", "Process Optimization"],
+    link: "https://example.com/project1",
   },
   {
     title: "Predictive Analytics Dashboard",
     description: "Architected a predictive analytics solution for a Fortune 500 company that increased forecast accuracy by 35% and enabled data-driven decision making across the organization.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     skills: ["Machine Learning", "Data Visualization", "Business Intelligence"],
+    link: "https://example.com/project2",
   },
   {
     title: "AI-Powered Market Analysis Tool",
     description: "Developed an AI-driven market analysis tool that identifies emerging trends and competitive insights, helping clients achieve 28% faster market response time.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     skills: ["Market Intelligence", "NLP", "Data Engineering"],
+    link: "https://example.com/project3",
   }
 ];
 
@@ -60,8 +63,14 @@ const Projects = () => {
                 </div>
               </CardContent>
               <CardFooter className="p-6 pt-0">
-                <Button variant="outline" className="w-full gap-2">
-                  View Details <ExternalLink size={14} />
+                <Button 
+                  variant="outline" 
+                  className="w-full gap-2"
+                  asChild
+                >
+                  <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    View Details <ExternalLink size={14} />
+                  </a>
                 </Button>
               </CardFooter>
             </Card>
@@ -69,8 +78,14 @@ const Projects = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
-            View All Projects
+          <Button 
+            variant="outline" 
+            size="lg"
+            asChild
+          >
+            <a href="https://example.com/all-projects" target="_blank" rel="noopener noreferrer">
+              View All Projects
+            </a>
           </Button>
         </div>
       </div>
