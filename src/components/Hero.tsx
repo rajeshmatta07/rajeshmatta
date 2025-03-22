@@ -11,7 +11,7 @@ const Hero = () => {
           <div className="lg:col-span-3 animate-fadeIn">
             <p className="text-primary font-medium mb-3">Hello, I am</p>
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              AI Product Manager
+              Rajesh Matta
               <span className="hero-text-gradient"> with Technical Expertise</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl">
