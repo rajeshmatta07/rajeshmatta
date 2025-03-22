@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Download, GitHub, Linkedin, Twitter } from 'lucide-react';
+import { ArrowRight, Download, Github, Linkedin, Twitter } from 'lucide-react';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 
 const Hero = () => {
@@ -43,7 +43,7 @@ const Hero = () => {
                 <HoverCard>
                   <HoverCardTrigger asChild>
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-200">
-                      <GitHub size={20} />
+                      <Github size={20} />
                     </a>
                   </HoverCardTrigger>
                   <HoverCardContent className="w-auto">
