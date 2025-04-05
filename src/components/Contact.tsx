@@ -36,7 +36,7 @@ const Contact = () => {
                   </div>
                   <div className="ml-4">
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <a href="mailto:contact@rajeshmatta.com" className="font-medium hover:text-primary">contact@rajeshmatta.com</a>
+                    <a href="mailto:rajeshmatta127@gmail.com" className="font-medium hover:text-primary">rajeshmatta127@gmail.com</a>
                   </div>
                 </div>
                 
@@ -46,7 +46,7 @@ const Contact = () => {
                   </div>
                   <div className="ml-4">
                     <p className="text-sm text-muted-foreground">Phone</p>
-                    <a href="tel:+15551234567" className="font-medium hover:text-primary">+1 (555) 123-4567</a>
+                    <a href="tel:+919701844237" className="font-medium hover:text-primary">+91 9701844237</a>
                   </div>
                 </div>
                 
@@ -56,7 +56,7 @@ const Contact = () => {
                   </div>
                   <div className="ml-4">
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="font-medium">San Francisco, California</p>
+                    <p className="font-medium">Rajahmundry, India</p>
                   </div>
                 </div>
               </div>
