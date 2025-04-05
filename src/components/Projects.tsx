@@ -26,6 +26,27 @@ const projects = [
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     skills: ["Market Intelligence", "NLP", "Data Engineering"],
     link: "https://example.com/project3",
+  },
+  {
+    title: "Customer Segmentation Engine",
+    description: "Built a sophisticated customer segmentation engine using machine learning that improved marketing campaign ROI by 45% through more targeted messaging.",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    skills: ["Customer Analytics", "Clustering", "Marketing Tech"],
+    link: "https://example.com/project4",
+  },
+  {
+    title: "Supply Chain Optimization System",
+    description: "Designed and implemented an AI-driven supply chain optimization system that reduced inventory costs by 22% while maintaining service levels.",
+    image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    skills: ["Operations Research", "Optimization", "Supply Chain"],
+    link: "https://example.com/project5",
+  },
+  {
+    title: "Healthcare Prediction Platform",
+    description: "Created a healthcare prediction platform that uses patient data to forecast potential health issues, resulting in 15% earlier interventions.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    skills: ["Healthcare Tech", "Predictive Models", "HIPAA Compliance"],
+    link: "https://example.com/project6",
   }
 ];
 
@@ -43,7 +64,7 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden border-none shadow-lg flex flex-col h-full">
+            <Card key={index} className="overflow-hidden border-none shadow-lg flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
               <div className="h-48 overflow-hidden">
                 <img 
                   src={project.image} 
@@ -79,7 +100,7 @@ const Projects = () => {
 
         <div className="text-center mt-12">
           <Button 
-            variant="outline" 
+            variant="default" 
             size="lg"
             asChild
           >

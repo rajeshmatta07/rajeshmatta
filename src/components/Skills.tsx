@@ -38,7 +38,7 @@ const expertiseData = [
 
 const Skills = () => {
   return (
-    <section id="expertise" className="py-20 bg-secondary/20">
+    <section id="expertise" className="py-20 bg-gradient-to-br from-blue-50 to-white dark:from-background/90 dark:to-background">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Areas of Expertise</h2>
@@ -50,7 +50,7 @@ const Skills = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {expertiseData.map((item, index) => (
-            <Card key={index} className="border-none shadow-md hover:shadow-lg transition-shadow duration-300">
+            <Card key={index} className="border-none shadow-md hover:shadow-lg transition-shadow duration-300 hover:translate-y-[-5px]">
               <CardContent className="p-6">
                 <div className="mb-4 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                   {item.icon}

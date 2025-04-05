@@ -46,7 +46,7 @@ const Navbar = () => {
             </button>
           ))}
           <Button 
-            variant="outline" 
+            variant="default" 
             size="sm" 
             className="ml-2"
             onClick={() => scrollToSection('contact')}

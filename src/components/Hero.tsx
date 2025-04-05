@@ -6,7 +6,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/h
 
 const Hero = () => {
   return (
-    <section id="about" className="min-h-screen flex flex-col justify-center pt-20">
+    <section id="about" className="min-h-screen flex flex-col justify-center pt-20 bg-gradient-to-br from-white to-blue-50 dark:from-background dark:to-background/90">
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
@@ -90,7 +90,7 @@ const Hero = () => {
           <div className="lg:col-span-5">
             <div className="relative aspect-square max-w-md mx-auto lg:ml-auto">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/30 blur-2xl animate-pulse"></div>
-              <div className="absolute inset-0 rounded-2xl border border-primary/10 bg-white/80 backdrop-blur-sm shadow-xl overflow-hidden">
+              <div className="relative rounded-2xl border border-primary/10 bg-white/80 backdrop-blur-sm shadow-xl overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                   alt="Rajesh Matta" 
