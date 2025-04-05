@@ -92,7 +92,7 @@ const Hero = () => {
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/30 blur-2xl animate-pulse"></div>
               <div className="relative rounded-2xl border border-primary/10 bg-white/80 backdrop-blur-sm shadow-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  src="/lovable-uploads/6b116c04-006b-4806-8604-9d71b378886a.png" 
                   alt="Rajesh Matta" 
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
