@@ -30,7 +30,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     // Google Sheets Web App URL (deployed as a web app)
-    const googleSheetsWebAppUrl = "YOUR_GOOGLE_SHEETS_WEB_APP_URL";
+    const googleSheetsWebAppUrl = "https://script.google.com/macros/s/AKfycbzII9csaEAoTI0C4vJ_ClzVngdM2UbRSkf0Okk7cXQmvr9cCrSJEqX0aghd30_fBpLWnw/exec";
 
     try {
       // Send data to Google Sheets
