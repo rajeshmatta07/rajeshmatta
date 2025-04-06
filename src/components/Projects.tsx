@@ -5,8 +5,6 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Users, Zap, Globe, BrainCircuit } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const projects = [
   {
@@ -44,45 +42,6 @@ const projects = [
 ];
 
 const Projects = () => {
-  const isMobile = useIsMobile();
-
-  const ProjectCard = ({ project, index }: { project: any, index: number }) => (
-    <Card className="overflow-hidden border-none shadow-lg flex flex-col h-full hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-white to-gray-50/90 dark:from-slate-900 dark:to-slate-800/90">
-      <div className="relative h-56 overflow-hidden">
-        <div className="absolute top-4 left-4 z-20 p-2 rounded-full bg-white/90 dark:bg-slate-800/90 shadow-md">
-          {project.icon}
-        </div>
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-      </div>
-      <CardContent className="p-6 flex-grow">
-        <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-        <p className="text-muted-foreground mb-4">{project.description}</p>
-        <div className="flex flex-wrap gap-2">
-          {project.skills.map((skill: string) => (
-            <Badge key={skill} variant="outline" className="font-normal bg-primary/5 hover:bg-primary/10">
-              {skill}
-            </Badge>
-          ))}
-        </div>
-      </CardContent>
-      <CardFooter className="p-6 pt-0">
-        <Link to={`/project/${project.id}`} className="w-full">
-          <Button 
-            variant="outline" 
-            className="w-full gap-2 hover:bg-primary hover:text-primary-foreground transition-colors"
-          >
-            View Details <ExternalLink size={14} />
-          </Button>
-        </Link>
-      </CardFooter>
-    </Card>
-  );
-
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
@@ -94,30 +53,44 @@ const Projects = () => {
           </p>
         </div>
 
-        {isMobile ? (
-          <Carousel 
-            opts={{ align: "center", loop: true }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {projects.map((project, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full">
-                  <ProjectCard project={project} index={index} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex justify-center mt-6 gap-2">
-              <CarouselPrevious className="relative static" />
-              <CarouselNext className="relative static" />
-            </div>
-          </Carousel>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <ProjectCard key={index} project={project} index={index} />
-            ))}
-          </div>
-        )}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <Card key={index} className="overflow-hidden border-none shadow-lg flex flex-col h-full hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-white to-gray-50/90 dark:from-slate-900 dark:to-slate-800/90">
+              <div className="relative h-56 overflow-hidden">
+                <div className="absolute top-4 left-4 z-20 p-2 rounded-full bg-white/90 dark:bg-slate-800/90 shadow-md">
+                  {project.icon}
+                </div>
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+              </div>
+              <CardContent className="p-6 flex-grow">
+                <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                <p className="text-muted-foreground mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.skills.map(skill => (
+                    <Badge key={skill} variant="outline" className="font-normal bg-primary/5 hover:bg-primary/10">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+              <CardFooter className="p-6 pt-0">
+                <Link to={`/project/${project.id}`} className="w-full">
+                  <Button 
+                    variant="outline" 
+                    className="w-full gap-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+                  >
+                    View Details <ExternalLink size={14} />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
 
         <div className="text-center mt-12">
           <Button 

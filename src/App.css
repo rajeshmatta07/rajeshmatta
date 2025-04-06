@@ -25,17 +25,6 @@ section {
   color: transparent;
 }
 
-/* For better text rendering on mobile devices */
-@media (max-width: 768px) {
-  .hero-text-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)) 10%, hsl(217, 91%, 60%) 90%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  }
-}
-
 /* Image hover effects */
 .img-hover-zoom {
   overflow: hidden;
@@ -102,70 +91,6 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Mobile optimizations */
-@media (max-width: 640px) {
-  section {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  h1, h2, h3 {
-    word-break: break-word;
-    hyphens: auto;
-  }
-  
-  .container {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-  
-  /* Carousel customizations for mobile */
-  .embla__prev, .embla__next {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .embla__prev {
-    left: -5px;
-  }
-  
-  .embla__next {
-    right: -5px;
-  }
-}
-
-/* Improved touch targets for mobile */
-@media (max-width: 768px) {
-  button, 
-  a, 
-  [role="button"] {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
-  input, 
-  textarea, 
-  select {
-    font-size: 16px; /* Prevents iOS zoom on focus */
-  }
-  
-  /* Mobile carousel improvements */
-  .carousel-container {
-    position: relative;
-    padding: 0 1rem;
-  }
-}
-
-/* Custom carousel navigation button positioning */
-.carousel-nav-button {
-  position: relative;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-}
-
 /* Focus visible improvements */
 :focus-visible {
   outline: 2px solid hsl(var(--primary));
@@ -180,10 +105,4 @@ section {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Enhanced mobile menu */
-.mobile-menu-backdrop {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
