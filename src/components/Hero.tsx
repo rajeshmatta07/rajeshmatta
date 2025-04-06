@@ -109,7 +109,7 @@ const Hero = () => {
       <div className="hidden lg:block absolute bottom-10 left-1/2 transform -translate-x-1/2">
         <Button variant="secondary" size="sm" className="animate-bounce gap-2 shadow-lg rounded-full px-6" onClick={scrollToAbout}>
           <ArrowDown size={14} />
-          <span>Scroll to learn more</span>
+          <span>Scroll to see more</span>
         </Button>
       </div>
     </section>
