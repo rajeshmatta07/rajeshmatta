@@ -92,13 +92,10 @@ const projectsData = {
       "Ensuring data privacy while providing personalized assistance"
     ],
     outcomes: [
-      "Reduced context switching between apps by 60% for common workflows",
-      "Achieved 92% task completion rate across integrated services",
-      "Positive user feedback with NPS score of 72",
-      "Successfully handled 15,000+ daily user interactions in beta phase"
+      "Ongoing project"
     ],
-    year: "2024",
-    team: "Led 5-person cross-functional team",
+    year: "2025",
+    team: "Leading with digital virtual agents",
     demoLink: "https://example.com/aura-demo",
     repoLink: "https://github.com/example/aura-assistant",
     icon: <Globe className="text-emerald-500" />,
@@ -123,13 +120,10 @@ const projectsData = {
       "Integrating with existing team workflows and tools"
     ],
     outcomes: [
-      "28% increase in team productivity after 3 months of implementation",
-      "Reduced meeting time by 35% through better asynchronous collaboration",
-      "Improved team alignment scores by 42% in quarterly surveys",
-      "Successfully deployed to 12 remote teams with 95% retention rate"
+      "Ongoing project"
     ],
-    year: "2023",
-    team: "3-person core team with external contributors",
+    year: "2025",
+    team: "Leading with digital virtual agents",
     demoLink: "https://example.com/remote-platform-demo",
     repoLink: "https://github.com/example/remote-work-platform",
     icon: <BrainCircuit className="text-purple-500" />,
