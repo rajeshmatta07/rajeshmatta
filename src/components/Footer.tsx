@@ -1,20 +1,9 @@
 
 import React from 'react';
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
-  
-  const scrollToSection = (sectionId: string) => {
-    if (isHomePage) {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.location.href = `/#${sectionId}`;
-    }
-  };
   
   return (
     <footer className="py-12 border-t border-border bg-secondary/10">
@@ -30,14 +19,14 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {['about', 'expertise', 'experience', 'projects', 'contact'].map((item) => (
+              {['About', 'Expertise', 'Experience', 'Projects', 'Contact'].map((item) => (
                 <li key={item}>
-                  <button 
-                    onClick={() => scrollToSection(item)}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors bg-transparent border-0 p-0 cursor-pointer capitalize text-left"
+                  <a 
+                    href={`#${item.toLowerCase()}`}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {item === 'expertise' ? 'Skills' : item}
-                  </button>
+                    {item}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -81,12 +70,12 @@ const Footer = () => {
             </div>
             
             <div className="flex items-center space-x-6">
-              <button className="text-xs text-muted-foreground hover:text-primary transition-colors bg-transparent border-0 p-0 cursor-pointer">
+              <a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">
                 Privacy Policy
-              </button>
-              <button className="text-xs text-muted-foreground hover:text-primary transition-colors bg-transparent border-0 p-0 cursor-pointer">
+              </a>
+              <a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">
                 Terms of Service
-              </button>
+              </a>
             </div>
           </div>
         </div>

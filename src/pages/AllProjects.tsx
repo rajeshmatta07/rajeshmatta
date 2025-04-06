@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -76,18 +76,13 @@ const allProjects = [
 ];
 
 const AllProjects = () => {
-  useEffect(() => {
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-24">
-        <section className="py-12">
+      <main className="flex-grow">
+        <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+            <div className="flex justify-between items-center mb-8">
               <h1 className="text-3xl md:text-4xl font-bold">All Projects</h1>
               <Link to="/" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
                 <ArrowLeft size={16} />
@@ -99,7 +94,7 @@ const AllProjects = () => {
               Explore my complete portfolio of AI and technology projects that showcase innovative solutions to complex challenges.
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {allProjects.map((project, index) => (
                 <Card key={index} className="overflow-hidden border-none shadow-lg flex flex-col h-full hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-white to-gray-50/90 dark:from-slate-900 dark:to-slate-800/90">
                   <div className="relative h-48 overflow-hidden">

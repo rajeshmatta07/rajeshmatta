@@ -2,13 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,12 +18,7 @@ const Navbar = () => {
 
   const scrollToSection = (sectionId: string) => {
     setMobileMenuOpen(false);
-    if (isHomePage) {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      // If not on the home page, navigate to home and then to the section
-      window.location.href = `/#${sectionId}`;
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -38,19 +30,19 @@ const Navbar = () => {
       }`}
     >
       <div className="container flex items-center justify-between">
-        <Link to="/" className="text-xl font-bold tracking-tight text-primary">
+        <a href="#" className="text-xl font-bold tracking-tight text-primary">
           Rajesh Matta
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {['about', 'expertise', 'experience', 'projects', 'contact'].map((item) => (
+          {['About', 'Expertise', 'Experience', 'Projects', 'Contact'].map((item) => (
             <button 
               key={item} 
-              onClick={() => scrollToSection(item)}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer capitalize"
+              onClick={() => scrollToSection(item.toLowerCase())}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
             >
-              {item === 'expertise' ? 'Skills' : item}
+              {item}
             </button>
           ))}
           <Button 
@@ -77,13 +69,13 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-16 bg-background z-40 flex flex-col p-6 animate-fadeIn">
-          {['about', 'expertise', 'experience', 'projects', 'contact'].map((item) => (
+          {['About', 'Expertise', 'Experience', 'Projects', 'Contact'].map((item) => (
             <button 
               key={item} 
-              onClick={() => scrollToSection(item)}
-              className="text-lg font-medium py-3 border-b border-border text-foreground hover:text-primary transition-colors bg-transparent text-left w-full capitalize"
+              onClick={() => scrollToSection(item.toLowerCase())}
+              className="text-lg font-medium py-3 border-b border-border text-foreground hover:text-primary transition-colors bg-transparent text-left w-full"
             >
-              {item === 'expertise' ? 'Skills' : item}
+              {item}
             </button>
           ))}
           <Button 
