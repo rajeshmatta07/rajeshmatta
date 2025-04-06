@@ -1,107 +1,116 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Download, Github, Linkedin, Twitter } from 'lucide-react';
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { ArrowDown, FileText, Send, ChevronRight } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Hero = () => {
+  const isMobile = useIsMobile();
+  
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToAbout = () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section id="about" className="min-h-screen flex flex-col justify-center pt-20 bg-gradient-to-br from-white to-blue-50 dark:from-background dark:to-background/90">
-      <div className="container mx-auto px-4 py-16 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-block px-3 py-1 bg-primary/10 rounded-full text-primary text-sm font-medium mb-2 animate-fadeIn">
-              AI Product Management Expert
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight hero-text-gradient animate-fadeIn animation-delay-200">
-              Rajesh Matta
+    <section id="about" className="min-h-[90vh] flex flex-col justify-center pt-16 pb-10 md:py-24 overflow-hidden bg-gradient-to-b from-background to-muted/20">
+      <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-3 order-2 lg:order-1"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 md:mb-6">
+              <span className="block">Hi, I'm</span> 
+              <span className="hero-text-gradient text-[4rem] sm:text-[4.5rem] md:text-[5.5rem] leading-none">
+                Rajesh
+              </span>
             </h1>
             
-            <h2 className="text-2xl md:text-3xl text-muted-foreground font-light animate-fadeIn animation-delay-400">
-              Bridging Technical Innovation with Business Value
-            </h2>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              <p className="text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-xl leading-relaxed">
+                AI Product Management professional with a unique blend of technical expertise and business acumen. 
+                I specialize in building intelligent systems that solve real-world problems.
+              </p>
+            </motion.div>
             
-            <p className="text-lg text-muted-foreground max-w-2xl animate-fadeIn animation-delay-600">
-              I help organizations develop AI strategies and products that solve 
-              real business problems through my unique combination of advanced 
-              technical expertise and deep business acumen.
-            </p>
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="flex flex-wrap gap-4 mb-8"
+            >
+              <Button size="lg" className="gap-2 rounded-full" onClick={scrollToContact}>
+                <Send size={16} /> Get in Touch
+              </Button>
+              <Button size="lg" variant="outline" className="gap-2 rounded-full">
+                <FileText size={16} /> Download CV
+              </Button>
+            </motion.div>
             
-            <div className="flex flex-wrap gap-4 pt-4 animate-fadeIn animation-delay-600">
-              <Button 
-                size="lg" 
-                className="gap-2 rounded-md transition-all hover:translate-y-[-2px]"
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                View My Work <ArrowRight size={16} />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="gap-2 rounded-md transition-all hover:translate-y-[-2px]"
-                asChild
-              >
-                <a href="/resume.pdf" download="Rajesh_Matta_Resume.pdf">
-                  Download CV <Download size={16} />
-                </a>
-              </Button>
-            </div>
-
-            <div className="flex items-center gap-4 pt-4 animate-fadeIn animation-delay-600">
-              <div className="text-sm text-muted-foreground">Connect with me:</div>
-              <div className="flex gap-3">
-                <HoverCard>
-                  <HoverCardTrigger asChild>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-200">
-                      <Github size={20} />
-                    </a>
-                  </HoverCardTrigger>
-                  <HoverCardContent className="w-auto">
-                    <p className="text-sm">Follow me on GitHub</p>
-                  </HoverCardContent>
-                </HoverCard>
-
-                <HoverCard>
-                  <HoverCardTrigger asChild>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-200">
-                      <Linkedin size={20} />
-                    </a>
-                  </HoverCardTrigger>
-                  <HoverCardContent className="w-auto">
-                    <p className="text-sm">Connect on LinkedIn</p>
-                  </HoverCardContent>
-                </HoverCard>
-
-                <HoverCard>
-                  <HoverCardTrigger asChild>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-200">
-                      <Twitter size={20} />
-                    </a>
-                  </HoverCardTrigger>
-                  <HoverCardContent className="w-auto">
-                    <p className="text-sm">Follow me on Twitter</p>
-                  </HoverCardContent>
-                </HoverCard>
-              </div>
-            </div>
-          </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+              className="hidden md:flex items-center gap-2 text-muted-foreground"
+            >
+              <span>Scroll down to explore</span>
+              <ChevronRight size={16} className="animate-bounce" />
+            </motion.div>
+          </motion.div>
           
-          <div className="lg:col-span-5">
-            <div className="relative aspect-square max-w-md mx-auto lg:ml-auto">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/30 blur-2xl animate-pulse"></div>
-              <div className="relative rounded-2xl border border-primary/10 bg-white/80 backdrop-blur-sm shadow-xl overflow-hidden">
-                <img 
-                  src="/lovable-uploads/6b116c04-006b-4806-8604-9d71b378886a.png" 
-                  alt="Rajesh Matta" 
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="lg:col-span-2 relative mx-auto max-w-sm lg:max-w-none order-1 lg:order-2"
+          >
+            <div className="relative mx-auto">
+              {/* Background decoration elements */}
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-primary/40 via-primary/20 to-primary-foreground/10 blur-xl animate-pulse"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/30 to-primary-foreground/20 animate-pulse"></div>
+              
+              {/* Main profile image with enhanced styling */}
+              <div className="relative aspect-square max-w-[300px] md:max-w-[350px] lg:max-w-[380px] mx-auto">
+                <Avatar className="w-full h-full border-4 border-background shadow-xl">
+                  <AvatarImage 
+                    src="/lovable-uploads/93b44e2d-f4be-467c-8c5d-d249c5249606.png" 
+                    alt="Rajesh Matta"
+                    className="object-cover"
+                  />
+                  <AvatarFallback>RM</AvatarFallback>
+                </Avatar>
               </div>
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
-              <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/5 rounded-full blur-xl animate-pulse animation-delay-400"></div>
             </div>
-          </div>
+            
+            {/* Mobile scroll indicator */}
+            <div className="lg:hidden absolute -bottom-6 left-1/2 transform -translate-x-1/2 z-20 mt-4">
+              <Button variant="secondary" size="sm" className="animate-bounce gap-2 shadow-lg rounded-full" onClick={scrollToAbout}>
+                <ArrowDown size={14} />
+                <span>More</span>
+              </Button>
+            </div>
+          </motion.div>
         </div>
+      </div>
+      
+      {/* Desktop scroll indicator */}
+      <div className="hidden lg:block absolute bottom-10 left-1/2 transform -translate-x-1/2">
+        <Button variant="secondary" size="sm" className="animate-bounce gap-2 shadow-lg rounded-full px-6" onClick={scrollToAbout}>
+          <ArrowDown size={14} />
+          <span>Scroll to learn more</span>
+        </Button>
       </div>
     </section>
   );

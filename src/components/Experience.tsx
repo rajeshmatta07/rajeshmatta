@@ -9,8 +9,11 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Briefcase, School, Calendar, BookOpen, MapPin } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Experience = () => {
+  const isMobile = useIsMobile();
+  
   // Experiences ordered from newest to oldest
   const experiences = [
     {
@@ -60,11 +63,12 @@ const Experience = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Image on the left side - Adjusted for better appearance */}
           <div className="lg:col-span-4 flex items-center justify-center">
-            <div className="relative rounded-xl overflow-hidden border-2 border-primary/20 shadow-xl max-w-sm transform transition-all hover:scale-105 duration-300">
+            <div className="relative rounded-xl overflow-hidden border-2 border-primary/20 shadow-xl max-w-sm h-full transform transition-all hover:scale-105 duration-300">
               <img 
                 src="/lovable-uploads/433f9027-91aa-4cde-af18-3ce5dd3c2c93.png" 
                 alt="Rajesh Matta professional" 
                 className="w-full h-full object-cover"
+                style={{ maxHeight: isMobile ? '300px' : '100%', objectPosition: 'center' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
               <div className="absolute bottom-6 left-6 right-6">
@@ -91,16 +95,16 @@ const Experience = () => {
                     
                     <Card className="w-full border-primary/10 hover:shadow-md transition-shadow duration-300">
                       <CardHeader className="pb-2">
-                        <div className="flex justify-between items-center mb-1">
+                        <div className="flex flex-wrap justify-between items-center mb-1">
                           <CardTitle className="text-lg md:text-xl">{exp.role}</CardTitle>
                           <div className="flex items-center gap-1 text-muted-foreground text-sm">
                             <Calendar size={16} />
                             <span>{exp.year}</span>
                           </div>
                         </div>
-                        <CardDescription className="flex items-center gap-1">
-                          <MapPin size={14} className="text-muted-foreground" />
-                          {exp.title}
+                        <CardDescription className="flex items-center gap-1 flex-wrap">
+                          <MapPin size={14} className="text-muted-foreground min-w-4" />
+                          <span className="break-words">{exp.title}</span>
                         </CardDescription>
                       </CardHeader>
                       <CardContent>

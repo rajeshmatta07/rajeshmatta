@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Github, Calendar, Users, Tag, Bot, Zap, Globe, BrainCircuit } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -139,12 +139,17 @@ const projectsData = {
 const ProjectDetail = () => {
   const { projectId } = useParams();
   const project = projectId ? projectsData[projectId as keyof typeof projectsData] : null;
+  
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, [projectId]);
 
   if (!project) {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-grow flex items-center justify-center">
+        <main className="flex-grow flex items-center justify-center pt-20">
           <div className="text-center px-4">
             <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
             <p className="text-muted-foreground mb-6">The project you're looking for doesn't exist or has been moved.</p>
@@ -163,7 +168,7 @@ const ProjectDetail = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero section */}
-        <section className="relative">
+        <section className="relative pt-16">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-blue-600/90 z-0"></div>
           <div className="relative h-72 md:h-96 flex items-center justify-center z-10">
             <div className="container px-4 text-white">
@@ -175,9 +180,9 @@ const ProjectDetail = () => {
                 <div className="p-3 bg-white/20 rounded-full backdrop-blur-sm">
                   {project.icon}
                 </div>
-                <h1 className="text-3xl md:text-4xl font-bold">{project.title}</h1>
+                <h1 className="text-2xl md:text-4xl font-bold">{project.title}</h1>
               </div>
-              <p className="text-lg md:text-xl max-w-3xl text-white/90">{project.description}</p>
+              <p className="text-base md:text-xl max-w-3xl text-white/90">{project.description}</p>
             </div>
           </div>
         </section>
@@ -187,7 +192,7 @@ const ProjectDetail = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Main content */}
-              <div className="lg:col-span-2">
+              <div className="lg:col-span-2 order-2 lg:order-1">
                 <div className="prose prose-lg dark:prose-invert max-w-none">
                   <h2 className="text-2xl font-bold mb-6">Overview</h2>
                   <p className="text-muted-foreground">{project.longDescription}</p>
@@ -231,8 +236,8 @@ const ProjectDetail = () => {
               </div>
               
               {/* Sidebar */}
-              <div>
-                <Card>
+              <div className="order-1 lg:order-2">
+                <Card className="sticky top-24">
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-4">Project Details</h3>
                     
