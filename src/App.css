@@ -118,6 +118,20 @@ section {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
+  
+  /* Carousel customizations for mobile */
+  .embla__prev, .embla__next {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .embla__prev {
+    left: -5px;
+  }
+  
+  .embla__next {
+    right: -5px;
+  }
 }
 
 /* Improved touch targets for mobile */
@@ -134,6 +148,22 @@ section {
   select {
     font-size: 16px; /* Prevents iOS zoom on focus */
   }
+  
+  /* Mobile carousel improvements */
+  .carousel-container {
+    position: relative;
+    padding: 0 1rem;
+  }
+}
+
+/* Custom carousel navigation button positioning */
+.carousel-nav-button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
 }
 
 /* Focus visible improvements */
