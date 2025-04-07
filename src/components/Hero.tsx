@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowDown, FileText, Send, ChevronRight } from 'lucide-react';
+import { ArrowDown, FileText, Send } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
@@ -58,16 +58,6 @@ const Hero = () => {
                 <FileText size={16} /> Download CV
               </Button>
             </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              className="hidden md:flex items-center gap-2 text-muted-foreground"
-            >
-              <span>Scroll down to explore</span>
-              <ChevronRight size={16} className="animate-bounce" />
-            </motion.div>
           </motion.div>
           
           <motion.div
@@ -93,24 +83,8 @@ const Hero = () => {
                 </Avatar>
               </div>
             </div>
-            
-            {/* Mobile scroll indicator */}
-            <div className="lg:hidden absolute -bottom-6 left-1/2 transform -translate-x-1/2 z-20 mt-4">
-              <Button variant="secondary" size="sm" className="animate-bounce gap-2 shadow-lg rounded-full" onClick={scrollToAbout}>
-                <ArrowDown size={14} />
-                <span>More</span>
-              </Button>
-            </div>
           </motion.div>
         </div>
-      </div>
-      
-      {/* Desktop scroll indicator */}
-      <div className="hidden lg:block absolute bottom-10 left-1/2 transform -translate-x-1/2">
-        <Button variant="secondary" size="sm" className="animate-bounce gap-2 shadow-lg rounded-full px-6" onClick={scrollToAbout}>
-          <ArrowDown size={14} />
-          <span>Scroll to see more</span>
-        </Button>
       </div>
     </section>
   );
